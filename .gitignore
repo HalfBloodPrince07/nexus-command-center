@@ -1,0 +1,71 @@
+# ---- Secrets / env ----
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+opencode.json
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.pytest-tmp/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.tox/
+.venv/
+venv/
+env/
+
+# ---- Node / Next.js ----
+node_modules/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+next-env.d.ts
+.vercel/
+
+# ---- Databases / generated data ----
+*.sqlite
+*.sqlite3
+*.db
+data/chroma/
+data/chroma_test/
+data/nexus.db*
+backend/data/
+
+# ---- Logs ----
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ---- Claude Code local user config ----
+.claude/settings.local.json
+
+# ---- Editor / OS ----
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Scratch / temp ----
+scratch/
+nul
+*.tmp
+*.bak

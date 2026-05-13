@@ -1,0 +1,65 @@
+# =============================================================================
+# NEXUS OS - Phase 2 Requirements (Local Inference + HF Embeddings)
+# =============================================================================
+# Core Web Framework & Utilities
+fastapi
+uvicorn
+httpx
+PyYAML
+pydantic-settings
+fastmcp
+
+# Local LLM Inference (LM Studio only - no cloud calls)
+langchain-openai
+aiofiles  # Required for async file handling with LM Studio streaming
+
+# Knowledge Cluster (RAG) - ChromaDB + Embeddings
+chromadb==0.5.5
+rank-bm25==0.2.2  # Hybrid search (BM25 + vector similarity)
+
+# Local HF Embedding Models (NOT LM Studio/Ollama - uses huggingface_hub + torch)
+torch>=2.0.0
+transformers>=4.36.0
+huggingface-hub>=0.19.0
+
+# Document Processing & Upload
+unstructured[pdf,docx,xlsx,md]==0.15.0  # PDF/DOCX/XLSX/MD parsing (best quality)
+pypdf>=4.0.0                             # Pure-Python PDF fallback (no Poppler needed)
+pymupdf>=1.23.0                          # High-fidelity PDF text/layout extraction (fitz)
+Pillow==10.4.0
+python-multipart==0.0.9  # Required by FastAPI for UploadFile
+
+# Message Bus & Monitoring
+redis
+psutil
+GPUtil
+
+# RAG Chunking
+langchain-text-splitters==0.3.0
+
+# Phase 3 — Research Cluster
+duckduckgo-search>=6.2.0
+trafilatura>=1.12.0
+langgraph>=0.2.0
+python-slugify>=8.0.0
+
+# Phase 4 — Journal & Life Cluster
+spacy>=3.7.0                     # NER for Relationship Finder
+vaderSentiment>=3.3.2            # fast sentiment per person mention
+networkx>=3.2                    # relationship graph math
+
+# Phase 5 — Memory System
+rapidfuzz>=3.9.0                 # Conflict similarity detection
+python-dateutil>=2.9.0           # Date parsing
+
+# Phase 6 — Proactive Intelligence
+apscheduler>=3.10.4              # Background job scheduler
+tzlocal>=5.2                     # Timezone detection
+
+# Output Formatting (optional — graceful fallback if absent)
+weasyprint>=60.0       # PDF export fallback (requires libpango on system)
+markdown>=3.5.0        # Markdown→HTML for weasyprint PDF path
+python-docx>=1.1.0     # DOCX export fallback (pandoc preferred when available)
+
+# File System Monitoring - Event-driven file watching for auto-ingestion
+watchdog>=4.0.0        # Cross-platform file system monitoring (upgrade from polling)
