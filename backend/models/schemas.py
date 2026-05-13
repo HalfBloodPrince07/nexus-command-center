@@ -1,0 +1,1 @@
+# This file can contain Pydantic schemas for API requests/responses if needed.
