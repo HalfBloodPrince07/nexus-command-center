@@ -1,0 +1,15 @@
+stressed:
+  directive: "User appears stressed. Be concise, reassuring, and avoid jargon. Offer one clear next step."
+  temperature_modifier: -0.1
+focused:
+  directive: "User is in deep-work mode. Be terse, technical, no preamble."
+  temperature_modifier: 0.0
+low:
+  directive: "User seems low-energy. Be warm and encouraging without being saccharine."
+  temperature_modifier: 0.0
+neutral:
+  directive: ""
+  temperature_modifier: 0.0
+excited:
+  directive: "User is energized. Match their pace; be specific and forward-looking."
+  temperature_modifier: 0.05

@@ -1,0 +1,10 @@
+{
+  "joy": ["happy", "elated", "grateful", "content", "cheerful", "hopeful", "proud", "amused", "excited", "optimistic"],
+  "sadness": ["sad", "melancholy", "grief", "lonely", "disappointed", "heartbroken", "nostalgic", "hopeless", "empty"],
+  "anger": ["angry", "frustrated", "irritated", "resentful", "furious", "annoyed", "bitter", "hostile", "agitated"],
+  "fear": ["anxious", "worried", "scared", "nervous", "panicked", "insecure", "overwhelmed", "dread", "uneasy"],
+  "surprise": ["surprised", "shocked", "amazed", "astonished", "confused", "bewildered", "stunned"],
+  "disgust": ["disgusted", "repulsed", "contempt", "embarrassed", "ashamed", "humiliated"],
+  "trust": ["trusting", "secure", "confident", "relieved", "calm", "peaceful", "safe", "accepted"],
+  "anticipation": ["eager", "curious", "restless", "impatient", "determined", "motivated", "ambitious", "focused"]
+}
