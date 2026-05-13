@@ -40,9 +40,7 @@ next-env.d.ts
 *.sqlite
 *.sqlite3
 *.db
-data/chroma/
-data/chroma_test/
-data/nexus.db*
+data/
 backend/data/
 
 # ---- Logs ----
