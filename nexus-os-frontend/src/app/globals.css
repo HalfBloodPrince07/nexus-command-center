@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "../styles/animations.css";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   NEXUS OS · Design Tokens
+   Single accent: electric violet. Restraint is the brand.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Surfaces (light) ─────────────────────────────────────────────────── */
+  --bg-primary: #FAFAFB;
+  --bg-secondary: #F2F2F5;
+  --bg-tertiary: #E8E8EE;
+  --bg-elevated: #FFFFFF;
+
+  /* ── Glass ────────────────────────────────────────────────────────────── */
+  --surface-glass: rgba(255, 255, 255, 0.66);
+  --surface-glass-elevated: rgba(255, 255, 255, 0.82);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-hover: rgba(255, 255, 255, 0.85);
+  --glass-shadow: 0 8px 32px rgba(15, 12, 36, 0.06);
+
+  /* ── Accent · Electric Violet ─────────────────────────────────────────── */
+  --accent:        #7C5CFF;
+  --accent-light:  #9B82FF;
+  --accent-dark:   #5E3FE6;
+  --accent-deeper: #4A2FCC;
+  --accent-muted:  rgba(124, 92, 255, 0.10);
+  --accent-glow:   rgba(124, 92, 255, 0.28);
+  --accent-rgb:    124, 92, 255;
+
+  /* Legacy secondary slot — kept neutral to discourage rainbow palettes */
+  --accent-secondary:       #6E5CE6;
+  --accent-secondary-light: #8B79F0;
+  --accent-secondary-muted: rgba(110, 92, 230, 0.10);
+
+  /* ── Gradients (mono-violet, no rainbow) ──────────────────────────────── */
+  --gradient-primary: linear-gradient(135deg, #8B6BFF 0%, #7C5CFF 50%, #5E3FE6 100%);
+  --gradient-subtle:  linear-gradient(135deg, rgba(124, 92, 255, 0.10) 0%, rgba(94, 63, 230, 0.06) 100%);
+  --gradient-glass:   linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));
+  --gradient-mesh:
+    radial-gradient(at 20% 18%, rgba(124, 92, 255, 0.18) 0px, transparent 55%),
+    radial-gradient(at 78% 8%,  rgba(155, 130, 255, 0.12) 0px, transparent 50%),
+    radial-gradient(at 8% 88%,  rgba(94, 63, 230, 0.10)  0px, transparent 50%),
+    radial-gradient(at 88% 92%, rgba(124, 92, 255, 0.08) 0px, transparent 55%);
+
+  /* ── Text ─────────────────────────────────────────────────────────────── */
+  --text-primary:   #0A0A0B;
+  --text-secondary: rgba(10, 10, 11, 0.66);
+  --text-tertiary:  rgba(10, 10, 11, 0.46);
+  --text-muted:     rgba(10, 10, 11, 0.38);
+  --text-inverted:  #FAFAFB;
+
+  /* ── Borders ──────────────────────────────────────────────────────────── */
+  --border-subtle: rgba(10, 10, 11, 0.07);
+  --border-medium: rgba(10, 10, 11, 0.11);
+  --border-glow:   rgba(10, 10, 11, 0.16);
+  --border-accent: rgba(124, 92, 255, 0.32);
+
+  /* ── Status ───────────────────────────────────────────────────────────── */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error:   #EF4444;
+
+  /* ── Layout ───────────────────────────────────────────────────────────── */
+  --sidebar-width:     240px;
+  --sidebar-collapsed: 72px;
+  --radius-xs:   6px;
+  --radius-sm:   8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* ── Motion ───────────────────────────────────────────────────────────── */
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-quint: cubic-bezier(0.16, 1, 0.30, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* ─── Dark Mode ───────────────────────────────────────────────────────────── */
+.dark {
+  --bg-primary:   #0A0A0B;
+  --bg-secondary: #101013;
+  --bg-tertiary:  #16161B;
+  --bg-elevated:  #131318;
+
+  --surface-glass:          rgba(255, 255, 255, 0.04);
+  --surface-glass-elevated: rgba(255, 255, 255, 0.06);
+  --glass-bg:     rgba(18, 18, 24, 0.66);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-hover:  rgba(255, 255, 255, 0.10);
+  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+
+  --accent-muted: rgba(124, 92, 255, 0.16);
+  --accent-glow:  rgba(124, 92, 255, 0.34);
+  --accent-secondary-muted: rgba(110, 92, 230, 0.14);
+
+  --gradient-subtle: linear-gradient(135deg, rgba(124, 92, 255, 0.16) 0%, rgba(94, 63, 230, 0.08) 100%);
+  --gradient-glass:  linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  --gradient-mesh:
+    radial-gradient(at 20% 18%, rgba(124, 92, 255, 0.22) 0px, transparent 55%),
+    radial-gradient(at 78% 8%,  rgba(155, 130, 255, 0.14) 0px, transparent 50%),
+    radial-gradient(at 8% 88%,  rgba(94, 63, 230, 0.16)  0px, transparent 50%),
+    radial-gradient(at 88% 92%, rgba(124, 92, 255, 0.10) 0px, transparent 55%);
+
+  --text-primary:   #F5F5F7;
+  --text-secondary: rgba(245, 245, 247, 0.66);
+  --text-tertiary:  rgba(245, 245, 247, 0.46);
+  --text-muted:     rgba(245, 245, 247, 0.38);
+  --text-inverted:  #0A0A0B;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-glow:   rgba(255, 255, 255, 0.18);
+  --border-accent: rgba(124, 92, 255, 0.45);
+}
+
+/* ─── Base Reset ──────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Lenis owns scroll behavior — no native smooth scroll */
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+html, body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+  transition: background-color 0.3s var(--ease-out-expo), color 0.3s var(--ease-out-expo);
+}
+
+/* Custom cursor: hide native cursor only when our custom cursor is enabled */
+html[data-cursor="custom"], html[data-cursor="custom"] * {
+  cursor: none !important;
+}
+@media (pointer: coarse) {
+  html[data-cursor="custom"], html[data-cursor="custom"] * {
+    cursor: auto !important;
+  }
+}
+
+/* Focus rings — visible, branded, never removed */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(var(--accent-rgb), 0.28);
+  color: var(--text-primary);
+}
+
+/* ─── Scrollbars ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 10, 11, 0.10);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(10, 10, 11, 0.20); }
+.dark ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.10); }
+.dark ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.20); }
+
+/* ─── Reduced Motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html, body { scroll-behavior: auto !important; }
+}
+
+/* ─── Film Grain (3–5% opacity, kills banding on large surfaces) ──────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+.dark body::before {
+  opacity: 0.05;
+  mix-blend-mode: soft-light;
+}
+
+/* ─── Utility Layers ──────────────────────────────────────────────────────── */
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-subtle {
+    background: var(--surface-glass);
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .glass-elevated {
+    background: var(--surface-glass-elevated);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border: 1px solid var(--border-subtle);
+    box-shadow:
+      0 16px 50px rgba(15, 12, 36, 0.08),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+  }
+  .dark .glass-elevated {
+    background: rgba(22, 22, 30, 0.75);
+    border-color: var(--border-subtle);
+    box-shadow:
+      0 24px 70px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  }
+
+  /* 1px gradient stroke (top-light → bottom-dark) — fakes depth on cards */
+  .stroke-gradient {
+    position: relative;
+  }
+  .stroke-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.04) 50%,
+      rgba(0, 0, 0, 0.18) 100%);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+  .dark .stroke-gradient::before {
+    background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.02) 60%,
+      rgba(0, 0, 0, 0.45) 100%);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Mask reveal — a clip-path wipe used in hero/section headlines */
+  .mask-reveal {
+    clip-path: inset(0 100% 0 0);
+    animation: mask-reveal 0.9s var(--ease-out-expo) forwards;
+  }
+}
+
+@keyframes mask-reveal {
+  to { clip-path: inset(0 0 0 0); }
+}
+
+/* ─── Display type — tight, premium ───────────────────────────────────────── */
+.font-display {
+  letter-spacing: -0.02em;
+}
+.display-hero {
+  font-size: clamp(3rem, 8vw, 8rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+.display-section {
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
